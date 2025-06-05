@@ -19,7 +19,7 @@
       <% if @user == nil %>
         <a href="/users/new">Sign Up</a> | <a href="/login">Login</a>
       <% else %>
-        <%= @user["real_name"] %> | <a href="/logout">Logout</a>
+        <%= 'Hello, ' + @user["username"] %> | <a href="/logout">Logout</a>
       <% end %>
     </div>
 
