@@ -1,5 +1,6 @@
 <h1><%= @place["name"] %></h1>
 
+<% if @user != nil %>
 <h2>My Entries</h2>
 <% for entry in @entries %>
   <h3><%= entry["title"] %></h3>
@@ -10,6 +11,9 @@
 <p>
   <a href="/entries/new?place_id=<%= @place["id"] %>">New Entry</a>
 </p>
+<% else %>
+  You must first <a href="/login">login</a> to post.
+<% end %>
 
 <p>
   <a href="/places">Back to All Places</a>
