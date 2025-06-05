@@ -15,9 +15,12 @@
     </div>
     <div>
       <a href="/">Home</a>
-      <a href="/logout">Logout</a>
-      <a href="/login">Login</a>
-      <a href="/users/new">Signup</a>
+     <% @user = User.find_by({ "id" => session["user_id"] }) %>
+      <% if @user == nil %>
+        <a href="/users/new">Sign Up</a> | <a href="/login">Login</a>
+      <% else %>
+        <%= @user["real_name"] %> | <a href="/logout">Logout</a>
+      <% end %>
     </div>
 
     <%= yield %>
